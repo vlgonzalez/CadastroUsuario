@@ -16313,6 +16313,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\vinic\\Documents\\Cursos\\tela_login\\CadastroUsuario\\Views\\Usuario\\Login.cshtml",
+      "TargetPath": "Views\\Usuario\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\vinic\\Documents\\Cursos\\tela_login\\CadastroUsuario\\Views\\Usuario\\RecuperarSenha.cshtml",
+      "TargetPath": "Views\\Usuario\\RecuperarSenha.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\vinic\\Documents\\Cursos\\tela_login\\CadastroUsuario\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -16325,6 +16335,11 @@
     {
       "FilePath": "c:\\Users\\vinic\\Documents\\Cursos\\tela_login\\CadastroUsuario\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\vinic\\Documents\\Cursos\\tela_login\\CadastroUsuario\\Views\\Usuario\\Index.cshtml",
+      "TargetPath": "Views\\Usuario\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
