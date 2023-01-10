@@ -75,8 +75,10 @@ namespace CadastroUsuario.Controllers
         if(loginEmail != null)
         {   
         loginEmail.Senha = Guid.NewGuid().ToString().Substring(0,8);
+        _context.Usuarios.Update(loginEmail);
+        _context.SaveChanges();
         
-            return BadRequest("achou");
+            return BadRequest(loginEmail.Senha);
         }
         
         return BadRequest("Email não encontrado, verifique o valor digitado");
