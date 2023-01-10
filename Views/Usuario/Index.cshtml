@@ -20,6 +20,12 @@
     @TempData["MensagemSucesso"]
     </div>
 }
+@if (TempData["MensagemEmail"] !=null)
+{
+    <div class="alert alert-success" role="alert">
+    @TempData["MensagemEmail"]
+    </div>
+}
 <form asp-action="Entrar">
  <table>
         <tr>

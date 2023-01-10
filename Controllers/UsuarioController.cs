@@ -6,6 +6,7 @@ using CadastroUsuario.Context;
 using CadastroUsuario.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using System.Net.Mail;
 
 namespace CadastroUsuario.Controllers
 {
@@ -80,7 +81,26 @@ namespace CadastroUsuario.Controllers
         _context.Usuarios.Update(loginEmail);
         _context.SaveChanges();
         
-            return BadRequest(loginEmail.Senha);
+        MailMessage mail = new MailMessage();
+                mail.To.Add(loginEmail.Email);
+                mail.From= new MailAddress("Email_do_remetente");
+                mail.Subject = "Redefinir senha";
+                string Body = $"Ola,{loginEmail.Nome}, sua nova senha é {loginEmail.Senha}";
+                mail.Body = Body;
+                mail.IsBodyHtml = true;
+ 
+                //Instância smtp do servidor, neste caso o gmail.
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential
+                ("Email_do_remetente", "Senha_email");// Login e senha do e-mail.
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+
+                TempData["MensagemEmail"] = $"Email enviado com sucesso";
+                return View("Index");
         }
         
         TempData["MensagemErro"] = $"Email incorreto, verifique o dado informado";
