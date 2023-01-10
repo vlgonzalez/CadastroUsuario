@@ -32,10 +32,11 @@ namespace CadastroUsuario.Controllers
                 
                 _context.Usuarios.Add(usuario);
                 _context.SaveChanges();
+                TempData["MensagemSucesso"] = $"Usuario criado com sucesso";
                 return RedirectToAction(nameof(Index));
             }
-            return BadRequest("Senhas divergentes");
-            
+            TempData["MensagemErro"] = $"Dados incorretos, verifique os dados informados";
+            return RedirectToAction("Cadastro");            
         }
 
         public IActionResult Index()
@@ -55,7 +56,8 @@ namespace CadastroUsuario.Controllers
             return View(loginUser);
         }else
         {
-           return BadRequest("Usuario ou senha invalidos");
+           TempData["MensagemErro"] = $"Senhas ou Email incorretos, verifique os dados informados";
+           return RedirectToAction("Index");
         }
        
         }
@@ -81,7 +83,8 @@ namespace CadastroUsuario.Controllers
             return BadRequest(loginEmail.Senha);
         }
         
-        return BadRequest("Email não encontrado, verifique o valor digitado");
+        TempData["MensagemErro"] = $"Email incorreto, verifique o dado informado";
+        return RedirectToAction("Recuperar");
         
         }
            

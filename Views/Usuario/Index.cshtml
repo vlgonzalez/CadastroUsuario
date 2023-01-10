@@ -8,6 +8,18 @@
 <h1>Login Usuario</h1>
 
 <br/>
+@if (TempData["MensagemErro"] !=null)
+{
+    <div class="alert alert-danger" role="alert">
+    @TempData["MensagemErro"]
+    </div>
+}
+@if (TempData["MensagemSucesso"] !=null)
+{
+    <div class="alert alert-success" role="alert">
+    @TempData["MensagemSucesso"]
+    </div>
+}
 <form asp-action="Entrar">
  <table>
         <tr>
