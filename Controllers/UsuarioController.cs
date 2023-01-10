@@ -45,9 +45,9 @@ namespace CadastroUsuario.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Entrar(Usuario login)
+        public IActionResult Entrar(string email, string senha)
         { 
-          var loginUser = _context.Usuarios.Where(a => a.Email.Equals(login.Email) && a.Senha.Equals(login.Senha)).FirstOrDefault();
+          var loginUser = _context.Usuarios.Where(a => a.Email.Equals(email) && a.Senha.Equals(senha)).FirstOrDefault();
 
         if(loginUser !=null)
         {   
@@ -67,21 +67,20 @@ namespace CadastroUsuario.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult RecuperarSenha(Usuario email)
+        public IActionResult RecuperarSenha(string email)
         {              
-        var loginemail =  _context.Usuarios.Where(e => e.Email.Equals(email.Email) && e.Senha.Equals(e.Senha)).FirstOrDefault();
-       
+        
+        var loginEmail =  _context.Usuarios.FirstOrDefault(e => e.Email == email);
 
-        if(loginemail != null)
+        if(loginEmail != null)
         {   
-           
+        loginEmail.Senha = Guid.NewGuid().ToString().Substring(0,8);
+        
             return BadRequest("achou");
-        }else
-        {
-           return BadRequest("Usuario ou senha invalidos");
         }
-    
-
+        
+        return BadRequest("Email não encontrado, verifique o valor digitado");
+        
         }
            
         }
