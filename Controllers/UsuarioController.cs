@@ -66,11 +66,13 @@ namespace CadastroUsuario.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult RecuperarSenha(Usuario email)
         {              
-        var loginemail = _context.Usuarios.Where(e => e.Email.Equals(email.Email)).FirstOrDefault();
+        var loginemail =  _context.Usuarios.Where(e => e.Email.Equals(email.Email) && e.Senha.Equals(e.Senha)).FirstOrDefault();
+       
 
-        if(loginemail !=null)
+        if(loginemail != null)
         {   
            
             return BadRequest("achou");
