@@ -2,30 +2,33 @@
 
 @{
     ViewData["Title"] = "Login Usuario";
+    
 }
 
 <h1>Login Usuario</h1>
 
 <br/>
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Entrar">
-            <div class="form-grup"> 
-                <label asp-for="Email" class="control-lable"></label>
-                <input asp-for="Email" class="form-control"/>
-            </div>
-            <div class="form-grup"> 
-                <label asp-for="Senha" class="control-lable"></label>
-                <input asp-for="Senha" class="form-control"/>
-            </div>
-            <br>
-            <div class="form-group">
-                <input type="submit" value="Entrar" class="btn btn-primary" />
-            </div>  
-        </form>
-    </div>
-</div>
+<form asp-action="Entrar">
+ <table>
+        <tr>
+            <td>@Html.LabelFor(a => a.Email)</td>
+            <td>@Html.TextBoxFor(a => a.Email)</td>
+            <td>@Html.ValidationMessageFor(a => a.Email)</td>
+        </tr>
+        <tr>
+            <td> @Html.LabelFor(a => a.Senha)</td>
+            <td> @Html.PasswordFor(a => a.Senha) </td>
+            <td> @Html.ValidationMessageFor(a => a.Senha) </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Entrar" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    </form>
 <br>
 <a asp-action="Cadastro">Cadastrar</a>
-<a asp-action="RecuperarSenha">Recuperar a senha</a>
+<a asp-action="Recuperar">Recuperar a senha</a>
