@@ -4,7 +4,7 @@ AplicaçãoC# - ASP.NET MVC - contou com a utilização do EntityFramework e Sql
 Este projeto tem como objetivo demonstrar habilidades, diante de situações que ocorrem no dia a dia de um Desenvolvedor, com foco em suas habilidades técnicas. O
 projeto tem o foco na construção de uma tela de login com toda a sua estrutura backend funcional.
 
-1. Cadastro de novos usuários
+1. Cadastro de novos usuários</br>
 Para que um usuário obtenha este acesso, ele precisa realizar o seu cadastro informando os seguintes dados:
 ● nome (obrigatório);
 ● e-mail (obrigatório e verificar se e-mail é válido);
